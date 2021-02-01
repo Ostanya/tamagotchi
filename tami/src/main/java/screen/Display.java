@@ -11,9 +11,10 @@ public class Display extends JFrame {
         super("Tami");
         setLocation(400, 200);
         setSize(SCREEN_WIDTH,675);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameScreen = new GameScreen();
-//        addKeyListener(gameScreen);
+        addMouseListener(gameScreen);
         add(gameScreen);
     }
 

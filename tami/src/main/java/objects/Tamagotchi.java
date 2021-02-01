@@ -7,9 +7,11 @@ public class Tamagotchi {
     private int cleanliness = 0;
     private int tiredness = 0;
     private int max = 10;
+    private int mid = 5;
+
     //еда
     public void feed() {
-        hungriness -= x;
+        hungriness -= mid;
         if(hungriness < 0) {
             hungriness = 0;
         }
@@ -17,9 +19,9 @@ public class Tamagotchi {
 
     //прогулка
     public void play() {
-        happiness += x;
-        thirstiness += x;
-        tiredness += x;
+        happiness += mid + 1 ;
+        thirstiness += mid + 2;
+        tiredness += mid -1;
         if(happiness > max) {
             happiness = max;
         }
@@ -48,15 +50,15 @@ public class Tamagotchi {
     public String getMood() {
         if(tiredness == max) {
             return "asleep";
-        }else if (tiredness >= 8) {
+        }else if (tiredness >= mid + 3) {
             return "tired";
-        }else if(hungriness >= 6) {
+        }else if(hungriness >= mid +1) {
             return "hungry";
-        }else if(cleanliness >= 4) {
+        }else if(cleanliness >= mid -1) {
             return "dirty";
-        }else if(happiness <= 7) {
+        }else if(happiness <= mid + 2) {
             return "happy";
-        }else if(happiness >= 4) {
+        }else if(happiness >= mid - 1) {
             return "normal";
         }else {
             return "sad";
@@ -72,10 +74,10 @@ public class Tamagotchi {
         }else{
             tiredness++;
         }
-        if(hungriness >= 7) {
+        if(hungriness >= mid + 2) {
             happiness--;
         }
-        if(cleanliness < 3) {
+        if(cleanliness < mid - 2) {
             happiness--;
         }
         //сделать проверку на меньше 0 и больше 10

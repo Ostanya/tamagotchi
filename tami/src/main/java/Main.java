@@ -1,8 +1,8 @@
-import screen.BackGround;
+import screen.Display;
 
 public class Main {
     public static void main(String[] args) {
-        BackGround app = new BackGround();
+        Display app = new Display();
         app.setVisible(true);
       //  app.startGame()
     }

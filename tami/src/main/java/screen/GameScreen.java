@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 public class GameScreen extends JPanel {
-    public static final int GAME_FIRST_START = 0;
+//    public static final int GAME_FIRST_START = 0;
 //    public static final int GAME_PLAY_START = 1;
 //    public static final int GAME_OVER_START = 2;
     public static final float GROUNDY = 130;
@@ -17,7 +17,7 @@ public class GameScreen extends JPanel {
 
     private BufferedImage tachi;
 
-    private int gameStart = GAME_FIRST_START;
+//    private int gameStart = GAME_FIRST_START;
 
     public GameScreen() {
         setBackground(Color.pink);
@@ -25,6 +25,12 @@ public class GameScreen extends JPanel {
         tachi = Resource.getResourceImage("data/normal.png");
     }
 
+
+    public void paint (Graphics g) {
+        super.paint(g);
+        // g.drawLine(10,10,100,100);
+        g.drawImage(tachi, 160, 250, 200, 200, null);
+    }
 //    public void startGame() {
 //        thread.start();
 //    };

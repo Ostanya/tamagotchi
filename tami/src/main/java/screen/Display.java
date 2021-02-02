@@ -18,9 +18,7 @@ public class Display extends JFrame {
         add(gameScreen);
     }
 
-//
-//    public void startGame() {
-//        gameScreen.startGame();
-//    }
-
+    public void startGame() {
+        gameScreen.startGame();
+    }
 }

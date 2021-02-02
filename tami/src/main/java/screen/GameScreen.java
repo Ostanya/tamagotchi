@@ -1,5 +1,6 @@
 package screen;
 
+import objects.Pet;
 import screen.*;
 import util.Resource;
 
@@ -9,13 +10,15 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.text.AttributedCharacterIterator;
 
-public class GameScreen extends JPanel implements MouseListener {
+public class GameScreen extends JPanel implements Runnable, MouseListener {
 //    public static final int GAME_FIRST_START = 0;
 //    public static final int GAME_PLAY_START = 1;
 //    public static final int GAME_OVER_START = 2;
     public static final float GROUNDY = 130;
-//    private Thread thread;
+    private Thread thread;
+    private Pet firstPet;
 
     private BufferedImage tachi;
 
@@ -23,10 +26,14 @@ public class GameScreen extends JPanel implements MouseListener {
 
     public GameScreen() {
         setBackground(Color.pink);
-    //    thread = new Thread(this);
+        thread = new Thread(this);
         tachi = Resource.getResourceImage("data/normal.png");
+        firstPet = new Pet();
     }
 
+    public void startGame() {
+        thread.start();
+    };
 
     public void paint (Graphics g) {
         super.paint(g);
@@ -68,7 +75,17 @@ public class GameScreen extends JPanel implements MouseListener {
         int y = e.getY();
         System.out.println("Mouse exit at X: " + x + " Y : " + y);
     }
-//    public void startGame() {
-//        thread.start();
-//    };
+
+    @Override
+    public void run() {
+        while(true) {
+            try{
+            //    update();
+                repaint();
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
